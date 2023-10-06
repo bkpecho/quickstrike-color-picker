@@ -1,5 +1,18 @@
+import { useState } from 'react';
+import ColorList from './components/ColorList';
+
 function App() {
-  return <h1 className="text-3xl font-bold underline text-center">Hello world!</h1>;
+  const [selectedColor, setSelectedColor] = useState(null);
+
+  const handleSelectColor = (color) => {
+    setSelectedColor(color);
+  };
+
+  return (
+    <div className="flex flex-col md:flex-row h-screen">
+      <ColorList onSelectColor={handleSelectColor} />
+    </div>
+  );
 }
 
 export default App;
