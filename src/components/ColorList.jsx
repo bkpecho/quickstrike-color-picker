@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Button from './Button';
 
 const ColorList = ({ onSelectColor }) => {
   const [colors, setColors] = useState([]);
@@ -34,12 +35,7 @@ const ColorList = ({ onSelectColor }) => {
               <li key={color.id} className="p-4 flex justify-between items-center">
                 <span className="text-2xl font-bold">{color.name}</span>
 
-                <button
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none"
-                  onClick={() => onSelectColor(color)}
-                >
-                  Preview
-                </button>
+                <Button onSelectColor={onSelectColor} color={color} />
               </li>
             ))}
           </ul>
